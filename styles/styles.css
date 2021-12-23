@@ -1,0 +1,404 @@
+body {
+  font-family: "Roboto Condensed", sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  overflow-x: hidden;
+}
+
+/*------------*\
+|-----HERO-----|
+\*------------*/
+#bg2, #bg1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: -1;
+  position: relative;
+  height: 500px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: center;
+  background-position-y: center;
+}
+
+.hero {
+  height: 500px;
+}
+
+#bg1 {
+  background-image: url("../assets/bg.jpg");
+  top: 0px;
+}
+
+#bg2 {
+  background-image: url("../assets/bg-overlay.png");
+  top: -500px;
+}
+
+.hero-content {
+  position: absolute;
+  top: 200px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  color: #f4f7f6;
+}
+.hero-content h1 {
+  margin: 0;
+  color: #f4f7f6;
+}
+.hero-content button {
+  width: 200px;
+  cursor: pointer;
+  margin: 5px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f4f7f6;
+  outline: none;
+  border: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  transition: 0.25s;
+  position: relative;
+  overflow: hidden;
+  height: 40px;
+}
+.hero-content button:hover {
+  transform: scale(1.1);
+}
+.hero-content button:hover div {
+  left: calc(100% + 40px);
+  transition: 0.5s;
+}
+.hero-content button div {
+  background: #bcddf3;
+  width: 60px;
+  height: 100%;
+  position: absolute;
+  left: -65px;
+  transform: skew(-15deg);
+}
+
+/*-----------*\
+|-----NAV-----|
+\*-----------*/
+[type=radio], [for=open], [for=close] {
+  display: none;
+}
+
+nav {
+  color: #10126b;
+  background-color: #f4f7f6;
+  position: absolute;
+  height: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+}
+nav ul {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  list-style: none;
+}
+nav li {
+  padding: 0 15px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 700;
+  transition: 0.5s;
+}
+nav li:hover {
+  color: #399cdd;
+  background-color: #e5ecea;
+}
+
+/*-----------*\
+|----LOGIN----|
+\*-----------*/
+.session {
+  display: flex;
+  align-items: center;
+  color: #10126b;
+  background-color: #f4f7f6;
+}
+.session span {
+  font-size: 13px;
+  padding-right: 5px;
+  cursor: pointer;
+}
+.session .profile {
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  margin-right: 5px;
+  border: 1px solid #ccc;
+}
+.session .logo {
+  position: relative;
+  border-radius: 50%;
+  color: #399cdd;
+  width: 50px;
+  height: 50px;
+  -webkit-animation-name: rotate;
+          animation-name: rotate;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+}
+
+@-webkit-keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (max-width: 768px) {
+  [for=close], [for=open] {
+    display: flex;
+    height: 50px;
+    width: 50px;
+    justify-content: center;
+    align-items: center;
+    color: #10126b;
+    cursor: pointer;
+  }
+
+  [for=close] {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  nav ul {
+    padding-top: 50px;
+    color: #10126b;
+    background-color: #f4f7f6;
+    transition: 0.3s;
+    position: fixed;
+    top: 0;
+    left: -100vw;
+    width: 400px;
+    height: 100vh;
+    flex-direction: column;
+    z-index: 1;
+  }
+  nav ul li {
+    padding: 15px;
+    margin: 0 15px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  #open:checked + nav ul {
+    left: 0;
+  }
+}
+@media (max-width: 500px) {
+  nav ul {
+    width: 100vw;
+  }
+}
+/*------------*\
+|----FOOTER----|
+\*------------*/
+footer {
+  height: 200px;
+  background-color: #10126b;
+  color: #f4f7f6;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+footer ul {
+  margin: 0;
+  padding: 15px;
+  list-style: none;
+  display: flex;
+}
+footer ul li {
+  cursor: pointer;
+}
+footer ul li i {
+  transition: 0.2s;
+  position: relative;
+  bottom: 0px;
+  color: #f4f7f6;
+}
+footer ul li:not(:last-child) {
+  padding-right: 10px;
+}
+footer ul li:hover i {
+  bottom: 5px;
+  box-shadow: 0px 5px 5px #399cdd;
+  color: white;
+}
+footer small {
+  padding: 10px;
+  font-size: 1em;
+}
+
+/*------------*\
+|-----GRID-----|
+\*------------*/
+.grid-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f4f7f6;
+}
+
+.content {
+  max-width: 600px;
+  padding: 10px 10px 0 10px;
+  margin: 40px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.content h2 {
+  margin: 0;
+  font-size: 1.8em;
+}
+.content span {
+  font-size: 1.4em;
+  text-align: center;
+}
+.content q {
+  margin-top: 10px;
+}
+
+.grid {
+  max-width: 1366px;
+  display: grid;
+  grid-gap: 10px;
+  padding: 10px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: minmax(200px, -webkit-max-content) minmax(150px, -webkit-max-content) minmax(200px, -webkit-max-content);
+  grid-template-rows: minmax(200px, max-content) minmax(150px, max-content) minmax(200px, max-content);
+  grid-template-areas: "article-1 article-2 article-3 article-3" "article-4 article-5 article-3 article-3" "article-6 article-6 article-7 article-8";
+}
+
+article {
+  color: #10126b;
+  display: flex;
+  flex-direction: column;
+  transition: 0.5s;
+  justify-content: flex-end;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: center;
+  background-position-y: center;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+}
+article::before {
+  content: "";
+  transition: 0.5s;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: rgba(16, 18, 107, 0);
+}
+article:hover::before {
+  background-color: rgba(16, 18, 107, 0.4);
+}
+article div {
+  position: relative;
+  color: #f4f7f6;
+  background: linear-gradient(0deg, #0d0f59 0%, transparent 100%);
+}
+article h2 {
+  margin: 0;
+  padding: 10px 10px 0 10px;
+}
+article p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  margin: 0 10px 10px 10px;
+}
+
+.article-1 {
+  grid-area: article-1;
+  background-image: url("../assets/1.jpg");
+}
+
+.article-2 {
+  grid-area: article-2;
+  background-image: url("../assets/2.jpg");
+}
+
+.article-3 {
+  grid-area: article-3;
+  background-image: url("../assets/3.jpg");
+}
+
+.article-4 {
+  grid-area: article-4;
+  background-image: url("../assets/4.jpg");
+}
+
+.article-5 {
+  grid-area: article-5;
+  background-image: url("../assets/5.jpg");
+}
+
+.article-6 {
+  grid-area: article-6;
+  background-image: url("../assets/6.jpg");
+}
+
+.article-7 {
+  grid-area: article-7;
+  background-image: url("../assets/7.jpg");
+}
+
+.article-8 {
+  grid-area: article-8;
+  background-image: url("../assets/8.jpg");
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: minmax(200px, -webkit-max-content) minmax(150px, -webkit-max-content) minmax(200px, -webkit-max-content) minmax(150px, -webkit-max-content);
+    grid-template-rows: minmax(200px, max-content) minmax(150px, max-content) minmax(200px, max-content) minmax(150px, max-content);
+    grid-template-areas: "article-1 article-1 article-2" "article-3 article-4 article-4" "article-3 article-5 article-6" "article-7 article-8 article-8";
+  }
+}
+@media (max-width: 500px) {
+  .grid {
+    grid-template-rows: repeat(4, 200px);
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: "article-1 article-2" "article-3 article-4" "article-5 article-6" "article-7 article-8";
+  }
+}
+@media (max-width: 300px) {
+  .grid {
+    grid-template-rows: repeat(8, 180px);
+    grid-template-columns: 1fr;
+    grid-template-areas: "article-1" "article-2" "article-3" "article-4" "article-5" "article-6" "article-7" "article-8";
+  }
+}/*# sourceMappingURL=styles.css.map */
