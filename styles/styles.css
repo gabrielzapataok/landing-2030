@@ -386,12 +386,11 @@ footer ul {
   display: flex;
 }
 footer ul li {
+  color: #ccc;
   cursor: pointer;
 }
 footer ul li i {
-  transition: 0.2s;
-  position: relative;
-  bottom: 0px;
+  transition: 0.1s;
   color: #eaf3f8;
 }
 footer ul li:not(:last-child) {
@@ -399,10 +398,33 @@ footer ul li:not(:last-child) {
 }
 footer ul li:hover i {
   bottom: 5px;
-  box-shadow: 0px 5px 5px #399cdd;
   color: white;
+  transform: scale(0.9);
 }
 footer small {
   padding: 10px;
   font-size: 1em;
+}
+
+.github {
+  background: black;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  color: white;
+  text-decoration: none;
+}
+.github:active, .github:hover, .github:visited, .github:focus {
+  color: white;
+  text-decoration: none;
+}
+.github span {
+  margin-left: 10px;
+  height: 100%;
+  display: flex;
+  align-items: center;
 }/*# sourceMappingURL=styles.css.map */
