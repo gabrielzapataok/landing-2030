@@ -1,12 +1,141 @@
-$secondary: #f4f7f6;
-$primary: #10126b;
+/*-------------------*\
+|-----INIT-CONFIG-----|
+\*-------------------*/
+
+$primary: #1e1f47;
+$secondary: #eaf3f8;
 $terciary: #399cdd;
 $neutral: #ccc;
-
 body{
     font-family: 'Roboto Condensed', sans-serif;
     -webkit-tap-highlight-color: transparent;
     overflow-x: hidden;
+}
+
+/*-----------*\
+|-----NAV-----|
+\*-----------*/
+
+[type="radio"],[for="open"],[for="close"]{
+    display: none;
+}
+nav{
+    color: $primary;
+    background-color: $secondary;
+    position: absolute;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    ul{
+        padding: 0;
+        margin: 0;
+        display: flex;
+        list-style: none;
+    }
+    li{
+        padding: 0 15px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        font-weight: 700;
+        transition: .5s;
+        &:hover{
+            color: $terciary;
+            background-color: darken($secondary, 5);
+        }
+    }
+}
+@media (max-width:768px) {
+    %buttonsMenu{
+        display: flex;
+        height: 50px;
+        width: 50px;
+        justify-content: center;
+        align-items: center;
+        color: $primary;
+        cursor: pointer
+    }
+    [for="open"]{
+        @extend %buttonsMenu;
+    }
+    [for="close"]{
+        @extend %buttonsMenu;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    nav{
+        ul {
+            padding-top: 50px;
+            color: $primary;
+            background-color: $secondary;
+            transition: .3s;
+            position: fixed;
+            top: 0;
+            left: -100vw;
+            width: 400px;
+            height: 100vh;
+            flex-direction: column;
+            z-index: 1;
+            li{
+                padding: 15px;
+                margin: 0 15px;
+                border-bottom: 1px solid $neutral;
+            }
+        }
+    }
+    #open:checked + nav ul{
+        left: 0;
+    }
+}
+@media (max-width:500px) {
+    nav ul {
+        width: 100vw;
+    }
+}
+
+/*-----------*\
+|----LOGIN----|
+\*-----------*/
+
+.session{
+    display: flex;
+    align-items: center;
+    color: $primary;
+    background-color: $secondary;
+    span{
+        font-size: 13px;
+        padding-right: 5px;
+        cursor: pointer;
+    }
+    .profile{
+        cursor: pointer;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        margin-right: 5px;
+        border: 1px solid $neutral;
+    }
+    .logo{
+        position: relative;
+        border-radius: 50%;
+        color: $terciary;
+        width: 50px;
+        height: 50px;
+        &:before{
+            animation-name: rotate;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
+    }
+}
+@keyframes rotate {
+    to{
+        transform: rotate(360deg);
+    }
 }
 
 /*------------*\
@@ -76,7 +205,7 @@ body{
             }
         }
         div{
-            background: lighten( $terciary ,30 );
+            background: rgba( $terciary ,.3 );
             width: 60px;
             height: 100%;
             position: absolute;
@@ -86,180 +215,10 @@ body{
     }
 }
 
-/*-----------*\
-|-----NAV-----|
-\*-----------*/
-
-[type="radio"],[for="open"],[for="close"]{
-    display: none;
-}
-nav{
-    color: $primary;
-    background-color: $secondary;
-    position: absolute;
-    height: 50px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    font-size: 18px;
-    ul{
-        padding: 0;
-        margin: 0;
-        display: flex;
-        list-style: none;
-    }
-    li{
-        padding: 0 15px;
-        display: flex;
-        align-items: center;
-        cursor: pointer;
-        font-weight: 700;
-        transition: .5s;
-        &:hover{
-            color: $terciary;
-            background-color: darken($secondary, 5);
-        }
-    }
-}
-
-/*-----------*\
-|----LOGIN----|
-\*-----------*/
-
-.session{
-    display: flex;
-    align-items: center;
-    color: $primary;
-    background-color: $secondary;
-    span{
-        font-size: 13px;
-        padding-right: 5px;
-        cursor: pointer;
-    }
-    .profile{
-        cursor: pointer;
-        width: 16px;
-        height: 16px;
-        border-radius: 50%;
-        margin-right: 5px;
-        border: 1px solid $neutral;
-    }
-    .logo{
-        position: relative;
-        border-radius: 50%;
-        color: $terciary;
-        width: 50px;
-        height: 50px;
-        animation-name: rotate;
-        animation-duration: 3s;
-        animation-iteration-count: infinite;
-        animation-timing-function: linear;
-    }
-}
-@keyframes rotate {
-    to{
-        transform: rotate(360deg);
-    }
-}
-@media (max-width:768px) {
-    %buttonsMenu{
-        display: flex;
-        height: 50px;
-        width: 50px;
-        justify-content: center;
-        align-items: center;
-        color: $primary;
-        cursor: pointer
-    }
-    [for="open"]{
-        @extend %buttonsMenu;
-    }
-    [for="close"]{
-        @extend %buttonsMenu;
-        position: absolute;
-        top: 0;
-        right: 0;
-    }
-    nav{
-        ul {
-            padding-top: 50px;
-            color: $primary;
-            background-color: $secondary;
-            transition: .3s;
-            position: fixed;
-            top: 0;
-            left: -100vw;
-            width: 400px;
-            height: 100vh;
-            flex-direction: column;
-            z-index: 1;
-            li{
-                padding: 15px;
-                margin: 0 15px;
-                border-bottom: 1px solid $neutral;
-            }
-        }
-    }
-    #open:checked + nav ul{
-        left: 0;
-    }
-}
-@media (max-width:500px) {
-    nav ul {
-        width: 100vw;
-    }
-}
-
-/*------------*\
-|----FOOTER----|
-\*------------*/
-
-footer{
-    height: 200px;
-    background-color: $primary;
-    color: $secondary;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    ul{
-        margin: 0;
-        padding: 15px;
-        list-style: none;
-        display: flex;
-        li{
-            
-            cursor: pointer;
-        }
-        li i {
-            transition: .2s;
-            position: relative;
-            bottom: 0px;
-            color: $secondary;
-        }
-        li:not(:last-child){
-            padding-right: 10px;
-        }
-        li:hover i{
-            bottom: 5px;
-            box-shadow: 0px 5px 5px $terciary;
-            color: white;
-        }
-    }
-    small{
-        padding: 10px;
-        font-size: 1em;
-    }
-}
-@media (max-width: 768px){
-    footer{
-        
-    }
-}
-
 /*------------*\
 |-----GRID-----|
 \*------------*/
+
 .grid-container{
     display: flex;
     flex-direction: column;
@@ -341,15 +300,12 @@ article{
         margin: 0 10px 10px 10px;
     }
 }
-
-
 @for $var from 1 to 9 {
     .article-#{$var}{
         grid-area: article-#{$var};
         background-image: url('../assets/#{$var}.jpg');
     }
 }
-
 @media (max-width: 768px){
     .grid{
         grid-template-columns: repeat(3, 1fr);
@@ -385,5 +341,47 @@ article{
         "article-6"
         "article-7"
         "article-8";
+    }
+}
+
+/*------------*\
+|----FOOTER----|
+\*------------*/
+
+footer{
+    height: 200px;
+    background-color: $primary;
+    color: $secondary;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    ul{
+        margin: 0;
+        padding: 15px;
+        list-style: none;
+        display: flex;
+        li{
+            
+            cursor: pointer;
+        }
+        li i {
+            transition: .2s;
+            position: relative;
+            bottom: 0px;
+            color: $secondary;
+        }
+        li:not(:last-child){
+            padding-right: 10px;
+        }
+        li:hover i{
+            bottom: 5px;
+            box-shadow: 0px 5px 5px $terciary;
+            color: white;
+        }
+    }
+    small{
+        padding: 10px;
+        font-size: 1em;
     }
 }
